@@ -1,5 +1,3 @@
-// Starting Project
-
 /**
  * This is used to test if arrays are equal...
  * Unfortunately Javascript doesn't do this...
@@ -17,7 +15,7 @@ function arrayEquals(arr1, arr2) {
  */
 
 function sum(a, b){
-    // YOUR CODE HERE
+    return a + b;
 }
 
 console.assert(sum(8, 11) === 19);
@@ -31,7 +29,9 @@ console.assert(sum(4, 100) === 104);
 
 function sumOfArray(arr){
     var sum = 0
-    // YOUR CODE HERE
+    for(i = 0; i < arr.length; i++) {
+        sum = sum + arr[i];
+    }
     return sum
 }
 
