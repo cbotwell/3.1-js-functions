@@ -81,8 +81,8 @@ function GCD(a, b){
         if (bDenoms.indexOf(aDenoms[x]) === 0) {
             ret = aDenoms[x];
         }
-    }
         return ret;
+    }
 }
 
 console.assert(GCD(5,1) === 1);
