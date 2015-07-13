@@ -8,6 +8,30 @@ function arrayEquals(arr1, arr2) {
 }
 
 /**
+ * denominators - function
+ *
+ * This function should take in one number
+ * and return an array of all of its denominators
+ */
+
+function denominators(num) {
+    var denoms = [];
+
+    for (var x = 1; x <= num; x++) {
+        if (num % x === 0) {
+            denoms.push(x);
+        }
+    }
+
+    return denoms;
+}
+
+console.assert(arrayEquals(denominators(1), [1]));
+console.assert(arrayEquals(denominators(3), [1, 3]));
+console.assert(arrayEquals(denominators(4), [1, 2, 4]));
+console.assert(arrayEquals(denominators(24), [1, 2, 3, 4, 6, 8, 12, 24]));
+
+/**
  * PART 0
  *
  * Write a function that takes two numbers as
