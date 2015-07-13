@@ -52,11 +52,11 @@ console.assert(sum(4, 100) === 104);
  */
 
 function sumOfArray(arr){
-    var sum = 0
+    var sum = 0;
     for(i = 0; i < arr.length; i++) {
         sum = sum + arr[i];
     }
-    return sum
+    return sum;
 }
 
 console.assert(sumOfArray([1, 2]) === 3);
@@ -74,7 +74,15 @@ console.assert(sumOfArray([10, 9, 8]) === 27);
  */
 
 function GCD(a, b){
-    // YOUR CODE HERE
+    var aDenoms = denominators(a);
+    var bDenoms = denominators(b);
+    var ret = false;
+    for (x = 0; x < aDenoms.length; x++) {
+        if (bDenoms.indexOf(aDenoms[x]) === 0) {
+            ret = aDenoms[x];
+        }
+    }
+        return ret;
 }
 
 console.assert(GCD(5,1) === 1);
@@ -92,10 +100,10 @@ function LCM(a, b){
     // YOUR CODE HERE
 }
 
-console.assert(LCM(10,10) === 10)
-console.assert(LCM(2,5) === 10)
-console.assert(LCM(3,6) === 6)
-console.assert(LCM(0,1) === 1)
+console.assert(LCM(10,10) === 10);
+console.assert(LCM(2,5) === 10);
+console.assert(LCM(3,6) === 6);
+console.assert(LCM(0,1) === 1);
 
 /**
  * Part 4
@@ -111,8 +119,8 @@ function fizzbuzz(N){
     // YOUR CODE HERE
 }
 
-console.assert(fizzbuzz(1) === ".")
-console.assert(fizzbuzz(2) === "..")
-console.assert(fizzbuzz(3) === "..fizz")
-console.assert(fizzbuzz(5) === "..fizz.buzz")
-console.assert(fizzbuzz(10) === "..fizz.buzzfizz..fizzbuzz")
+console.assert(fizzbuzz(1) === ".");
+console.assert(fizzbuzz(2) === "..");
+console.assert(fizzbuzz(3) === "..fizz");
+console.assert(fizzbuzz(5) === "..fizz.buzz");
+console.assert(fizzbuzz(10) === "..fizz.buzzfizz..fizzbuzz");
