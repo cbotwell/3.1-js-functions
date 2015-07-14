@@ -116,26 +116,26 @@ function LCM(a, b){
  */
 
 function fizzbuzz(N){
+    var fbret = "";
     for (var i = 1; i <= N; i++) {
         if (i % 3 === 0 && i % 5 === 0) {
-            return "fizzbuzz";
+            fbret = fbret + "fizzbuzz";
         }
         else if (i % 3 === 0) {
-            return "fizz";
+            fbret = fbret + "fizz";
         }
         else if (i % 5 === 0) {
-            return "buzz";
+            fbret = fbret + "buzz";
         }
         else {
-            return ".";
+            fbret = fbret + ".";
         }
     }
+    return fbret;
 }
-
-// console.log(fizzbuzz(2));
 
 console.assert(fizzbuzz(1) === ".");
 console.assert(fizzbuzz(2) === "..");
-// console.assert(fizzbuzz(3) === "..fizz");
-// console.assert(fizzbuzz(5) === "..fizz.buzz");
-// console.assert(fizzbuzz(10) === "..fizz.buzzfizz..fizzbuzz");
+console.assert(fizzbuzz(3) === "..fizz");
+console.assert(fizzbuzz(5) === "..fizz.buzz");
+console.assert(fizzbuzz(10) === "..fizz.buzzfizz..fizzbuzz");
