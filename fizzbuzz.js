@@ -8,6 +8,30 @@ function arrayEquals(arr1, arr2) {
 }
 
 /**
+ * denominators - function
+ *
+ * This function should take in one number
+ * and return an array of all of its denominators
+ */
+
+function denominators(num) {
+    var denoms = [];
+
+    for (var x = 1; x <= num; x++) {
+        if (num % x === 0) {
+            denoms.push(x);
+        }
+    }
+
+    return denoms;
+}
+
+console.assert(arrayEquals(denominators(1), [1]));
+console.assert(arrayEquals(denominators(3), [1, 3]));
+console.assert(arrayEquals(denominators(4), [1, 2, 4]));
+console.assert(arrayEquals(denominators(24), [1, 2, 3, 4, 6, 8, 12, 24]));
+
+/**
  * PART 0
  *
  * Write a function that takes two numbers as
@@ -15,7 +39,7 @@ function arrayEquals(arr1, arr2) {
  */
 
 function sum(a, b){
-    // YOUR CODE HERE
+    return a + b;
 }
 
 console.assert(sum(8, 11) === 19);
@@ -28,9 +52,11 @@ console.assert(sum(4, 100) === 104);
  */
 
 function sumOfArray(arr){
-    var sum = 0
-    // YOUR CODE HERE
-    return sum
+    var sum = 0;
+    for(var i = 0; i < arr.length; i++) {
+        sum = sum + arr[i];
+    }
+    return sum;
 }
 
 console.assert(sumOfArray([1, 2]) === 3);
@@ -48,7 +74,15 @@ console.assert(sumOfArray([10, 9, 8]) === 27);
  */
 
 function GCD(a, b){
-    // YOUR CODE HERE
+    var aDenoms = denominators(a);
+    var bDenoms = denominators(b);
+    var ret = false;
+    for (x = 0; x < aDenoms.length; x++) {
+        if (bDenoms.indexOf(aDenoms[x]) !== -1) {
+            ret = aDenoms[x];
+        }
+    }
+    return ret;
 }
 
 console.assert(GCD(5,1) === 1);
@@ -63,13 +97,18 @@ console.assert(GCD(50,20) === 10);
  */
 
 function LCM(a, b){
-    // YOUR CODE HERE
+    if ( a === 0 || b === 0) {
+        return 1;
+    }
+    else {
+    return((a * b) / GCD(a, b));
+    }
 }
 
-console.assert(LCM(10,10) === 10)
-console.assert(LCM(2,5) === 10)
-console.assert(LCM(3,6) === 6)
-console.assert(LCM(0,1) === 1)
+console.assert(LCM(10,10) === 10);
+console.assert(LCM(2,5) === 10);
+console.assert(LCM(3,6) === 6);
+console.assert(LCM(0,1) === 1);
 
 /**
  * Part 4
@@ -82,11 +121,26 @@ console.assert(LCM(0,1) === 1)
  */
 
 function fizzbuzz(N){
-    // YOUR CODE HERE
+    var fbret = "";
+    for (var i = 1; i <= N; i++) {
+        if (i % 3 === 0 && i % 5 === 0) {
+            fbret = fbret + "fizzbuzz";
+        }
+        else if (i % 3 === 0) {
+            fbret = fbret + "fizz";
+        }
+        else if (i % 5 === 0) {
+            fbret = fbret + "buzz";
+        }
+        else {
+            fbret = fbret + ".";
+        }
+    }
+    return fbret;
 }
 
-console.assert(fizzbuzz(1) === ".")
-console.assert(fizzbuzz(2) === "..")
-console.assert(fizzbuzz(3) === "..fizz")
-console.assert(fizzbuzz(5) === "..fizz.buzz")
-console.assert(fizzbuzz(10) === "..fizz.buzzfizz..fizzbuzz")
+console.assert(fizzbuzz(1) === ".");
+console.assert(fizzbuzz(2) === "..");
+console.assert(fizzbuzz(3) === "..fizz");
+console.assert(fizzbuzz(5) === "..fizz.buzz");
+console.assert(fizzbuzz(10) === "..fizz.buzzfizz..fizzbuzz");
